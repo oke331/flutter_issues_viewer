@@ -26,14 +26,20 @@ class IssueList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 初期化されるまでローディング画面表示
     if (!_init) {
       return const Center(child: Loading());
     }
 
+    // 空の場合、その旨を表示
     if (_issueDtoList == null || _issueDtoList.isEmpty) {
-      return const Center(child: Text('issueはありません。'));
+      return Center(
+          child: FlatButton(
+              onPressed: () async => _pullRefresh(),
+              child: const Text('issueはありません。\n再読み込みはタップ！')));
     }
 
+    // スクロールが最下部まで達したらロード開始
     _scrollController.addListener(() async {
       await _scrollListener(context);
     });

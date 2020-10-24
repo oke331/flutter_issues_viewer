@@ -50,7 +50,7 @@ class SpecificationButton extends StatelessWidget {
               ),
             ),
             actions: [
-              FlatButton(
+              TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: const Text('閉じる'))
             ],

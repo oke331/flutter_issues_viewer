@@ -34,7 +34,7 @@ class IssueList extends StatelessWidget {
     // 空の場合、その旨を表示
     if (_issueDtoList == null || _issueDtoList.isEmpty) {
       return Center(
-          child: FlatButton(
+          child: TextButton(
               onPressed: () async => _pullRefresh(),
               child: const Text('issueはありません。\n再読み込みはタップ！')));
     }

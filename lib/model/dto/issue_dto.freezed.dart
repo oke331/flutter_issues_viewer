@@ -22,6 +22,7 @@ class _$IssueDtoTearOff {
       String title,
       String body,
       String state,
+      String html_url,
       List<Map<String, dynamic>> labels,
       DateTime created_at,
       DateTime updated_at,
@@ -31,6 +32,7 @@ class _$IssueDtoTearOff {
       title: title,
       body: body,
       state: state,
+      html_url: html_url,
       labels: labels,
       created_at: created_at,
       updated_at: updated_at,
@@ -54,6 +56,7 @@ mixin _$IssueDto {
   String get title;
   String get body;
   String get state;
+  String get html_url;
   List<Map<String, dynamic>> get labels;
   DateTime get created_at;
   DateTime get updated_at;
@@ -72,6 +75,7 @@ abstract class $IssueDtoCopyWith<$Res> {
       String title,
       String body,
       String state,
+      String html_url,
       List<Map<String, dynamic>> labels,
       DateTime created_at,
       DateTime updated_at,
@@ -92,6 +96,7 @@ class _$IssueDtoCopyWithImpl<$Res> implements $IssueDtoCopyWith<$Res> {
     Object title = freezed,
     Object body = freezed,
     Object state = freezed,
+    Object html_url = freezed,
     Object labels = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
@@ -102,6 +107,7 @@ class _$IssueDtoCopyWithImpl<$Res> implements $IssueDtoCopyWith<$Res> {
       title: title == freezed ? _value.title : title as String,
       body: body == freezed ? _value.body : body as String,
       state: state == freezed ? _value.state : state as String,
+      html_url: html_url == freezed ? _value.html_url : html_url as String,
       labels: labels == freezed
           ? _value.labels
           : labels as List<Map<String, dynamic>>,
@@ -125,6 +131,7 @@ abstract class _$IssueDtoCopyWith<$Res> implements $IssueDtoCopyWith<$Res> {
       String title,
       String body,
       String state,
+      String html_url,
       List<Map<String, dynamic>> labels,
       DateTime created_at,
       DateTime updated_at,
@@ -146,6 +153,7 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
     Object title = freezed,
     Object body = freezed,
     Object state = freezed,
+    Object html_url = freezed,
     Object labels = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
@@ -156,6 +164,7 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
       title: title == freezed ? _value.title : title as String,
       body: body == freezed ? _value.body : body as String,
       state: state == freezed ? _value.state : state as String,
+      html_url: html_url == freezed ? _value.html_url : html_url as String,
       labels: labels == freezed
           ? _value.labels
           : labels as List<Map<String, dynamic>>,
@@ -178,6 +187,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       this.title,
       this.body,
       this.state,
+      this.html_url,
       this.labels,
       this.created_at,
       this.updated_at,
@@ -195,6 +205,8 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
   @override
   final String state;
   @override
+  final String html_url;
+  @override
   final List<Map<String, dynamic>> labels;
   @override
   final DateTime created_at;
@@ -205,7 +217,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'IssueDto(id: $id, title: $title, body: $body, state: $state, labels: $labels, created_at: $created_at, updated_at: $updated_at, closed_at: $closed_at)';
+    return 'IssueDto(id: $id, title: $title, body: $body, state: $state, html_url: $html_url, labels: $labels, created_at: $created_at, updated_at: $updated_at, closed_at: $closed_at)';
   }
 
   @override
@@ -217,6 +229,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('body', body))
       ..add(DiagnosticsProperty('state', state))
+      ..add(DiagnosticsProperty('html_url', html_url))
       ..add(DiagnosticsProperty('labels', labels))
       ..add(DiagnosticsProperty('created_at', created_at))
       ..add(DiagnosticsProperty('updated_at', updated_at))
@@ -235,6 +248,9 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
                 const DeepCollectionEquality().equals(other.body, body)) &&
             (identical(other.state, state) ||
                 const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.html_url, html_url) ||
+                const DeepCollectionEquality()
+                    .equals(other.html_url, html_url)) &&
             (identical(other.labels, labels) ||
                 const DeepCollectionEquality().equals(other.labels, labels)) &&
             (identical(other.created_at, created_at) ||
@@ -255,6 +271,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(html_url) ^
       const DeepCollectionEquality().hash(labels) ^
       const DeepCollectionEquality().hash(created_at) ^
       const DeepCollectionEquality().hash(updated_at) ^
@@ -276,6 +293,7 @@ abstract class _IssueDto implements IssueDto {
       String title,
       String body,
       String state,
+      String html_url,
       List<Map<String, dynamic>> labels,
       DateTime created_at,
       DateTime updated_at,
@@ -291,6 +309,8 @@ abstract class _IssueDto implements IssueDto {
   String get body;
   @override
   String get state;
+  @override
+  String get html_url;
   @override
   List<Map<String, dynamic>> get labels;
   @override

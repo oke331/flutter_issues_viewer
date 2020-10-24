@@ -12,7 +12,7 @@ class TabWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NoLoad(
+    return NoLoadWhenChangeTab(
       child: StateNotifierProvider<IssueStateNotifier, IssueState>(
         create: (context) => IssueStateNotifier(IssueApi(label: _label)),
         builder: (context, _) {
@@ -38,10 +38,10 @@ class TabWidget extends StatelessWidget {
   }
 }
 
-class NoLoad extends StatefulWidget {
-  NoLoad({this.child});
+class NoLoadWhenChangeTab extends StatefulWidget {
+  NoLoadWhenChangeTab({this.child});
   final Widget child;
-  final _NoLoadState _state = _NoLoadState();
+  final NoLoadWhenChangeTabState _state = NoLoadWhenChangeTabState();
 
   @override
   State<StatefulWidget> createState() {
@@ -49,7 +49,8 @@ class NoLoad extends StatefulWidget {
   }
 }
 
-class _NoLoadState extends State<NoLoad> with AutomaticKeepAliveClientMixin {
+class NoLoadWhenChangeTabState extends State<NoLoadWhenChangeTab>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);

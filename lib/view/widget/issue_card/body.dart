@@ -10,6 +10,7 @@ class IssueCardBody extends StatelessWidget {
     final body = context.select((IssueDto value) => value.body);
 
     return Container(
+      width: double.infinity,
       color: Colors.cyan[50],
       padding: const EdgeInsets.all(10),
       child: Text(

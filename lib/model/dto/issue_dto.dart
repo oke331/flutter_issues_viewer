@@ -11,6 +11,7 @@ abstract class IssueDto with _$IssueDto {
     String title,
     String body,
     String state,
+    String html_url,
     List<Map<String, dynamic>> labels,
     DateTime created_at,
     DateTime updated_at,

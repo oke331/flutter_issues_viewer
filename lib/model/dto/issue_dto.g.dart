@@ -12,6 +12,7 @@ _$_IssueDto _$_$_IssueDtoFromJson(Map<String, dynamic> json) {
     title: json['title'] as String,
     body: json['body'] as String,
     state: json['state'] as String,
+    html_url: json['html_url'] as String,
     labels: (json['labels'] as List)
         ?.map((e) => e as Map<String, dynamic>)
         ?.toList(),
@@ -33,6 +34,7 @@ Map<String, dynamic> _$_$_IssueDtoToJson(_$_IssueDto instance) =>
       'title': instance.title,
       'body': instance.body,
       'state': instance.state,
+      'html_url': instance.html_url,
       'labels': instance.labels,
       'created_at': instance.created_at?.toIso8601String(),
       'updated_at': instance.updated_at?.toIso8601String(),

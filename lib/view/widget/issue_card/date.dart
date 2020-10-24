@@ -26,10 +26,10 @@ class IssueCardDate extends StatelessWidget {
 
   String _format(DateTime dateTime) {
     if (dateTime == null) return null;
-    initializeDateFormatting('ja_JP');
+    initializeDateFormatting('ja');
 
     final formatter = DateFormat('yyyy/MM/dd(E) HH:mm', 'ja_JP');
-    final formatted = formatter.format(dateTime); // DateからString
+    final formatted = formatter.format(dateTime.toLocal()); // DateからString
     return formatted;
   }
 }

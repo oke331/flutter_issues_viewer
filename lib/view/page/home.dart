@@ -6,7 +6,7 @@ class Home extends StatelessWidget {
   final _tab = <Tab>[
     const Tab(text: '全て'),
     const Tab(text: 'p: webview'),
-    const Tab(text: 'p: shared_preference'),
+    const Tab(text: 'p: shared_preferences'),
     const Tab(text: 'waiting for customer response'),
     const Tab(text: 'severe: new feature'),
     const Tab(text: 'p: share'),

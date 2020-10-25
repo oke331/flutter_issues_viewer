@@ -68,6 +68,7 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
   }
 
   Future<void> refreshAndFetch() async {
+    final beforeLastPage = state.lastPage;
     state = state.copyWith(lastPage: 0);
     try {
       final issueDtoList = await _fetch();
@@ -78,6 +79,7 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
     } on Exception catch (e) {
       await Fluttertoast.showToast(msg: _errorMessage);
       logger.d(e.toString());
+      state = state.copyWith(lastPage: beforeLastPage);
     }
   }
 }

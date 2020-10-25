@@ -62,11 +62,6 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
     }
   }
 
-  Future<List<IssueDto>> _fetch() async {
-    final result = await _api.fetch(lastPage: state.lastPage);
-    return result;
-  }
-
   Future<void> refreshAndFetch() async {
     final beforeLastPage = state.lastPage;
     state = state.copyWith(lastPage: 0);
@@ -81,5 +76,10 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
       logger.d(e.toString());
       state = state.copyWith(lastPage: beforeLastPage);
     }
+  }
+
+  Future<List<IssueDto>> _fetch() async {
+    final result = await _api.fetch(lastPage: state.lastPage);
+    return result;
   }
 }

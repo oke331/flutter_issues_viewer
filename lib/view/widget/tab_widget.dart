@@ -21,23 +21,24 @@ class TabWidget extends StatelessWidget {
             issueDtoList: state.issueDtoList,
             init: state.init,
             isLoading: state.isLoading,
-            scrollCallback: () async => _callback(context),
-            pullRefresh: () async => _pullRequest(context),
+            scrollCallback: () async => _scrollCallback(context),
+            pullRefresh: () async => _pullRefresh(context),
           );
         },
       ),
     );
   }
 
-  Future<void> _callback(BuildContext context) async {
+  Future<void> _scrollCallback(BuildContext context) async {
     await context.read<IssueStateNotifier>().getList();
   }
 
-  Future<void> _pullRequest(BuildContext context) async {
+  Future<void> _pullRefresh(BuildContext context) async {
     await context.read<IssueStateNotifier>().refreshAndFetch();
   }
 }
 
+// タブ切り替え時のリロードを防ぐ
 class NoLoadWhenChangeTab extends StatefulWidget {
   NoLoadWhenChangeTab({this.child});
   final Widget child;

@@ -7,15 +7,14 @@ part 'issue_dto.g.dart';
 @freezed
 abstract class IssueDto with _$IssueDto {
   const factory IssueDto({
-    int id,
+    int number,
     String title,
     String body,
     String state,
     String html_url,
-    List<Map<String, dynamic>> labels,
+    int comments,
     DateTime created_at,
     DateTime updated_at,
-    DateTime closed_at,
   }) = _IssueDto;
 
   factory IssueDto.fromJson(Map<String, dynamic> json) =>

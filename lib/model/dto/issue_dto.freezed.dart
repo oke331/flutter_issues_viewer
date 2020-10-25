@@ -18,25 +18,23 @@ class _$IssueDtoTearOff {
 
 // ignore: unused_element
   _IssueDto call(
-      {int id,
+      {int number,
       String title,
       String body,
       String state,
       String html_url,
-      List<Map<String, dynamic>> labels,
+      int comments,
       DateTime created_at,
-      DateTime updated_at,
-      DateTime closed_at}) {
+      DateTime updated_at}) {
     return _IssueDto(
-      id: id,
+      number: number,
       title: title,
       body: body,
       state: state,
       html_url: html_url,
-      labels: labels,
+      comments: comments,
       created_at: created_at,
       updated_at: updated_at,
-      closed_at: closed_at,
     );
   }
 
@@ -52,15 +50,14 @@ const $IssueDto = _$IssueDtoTearOff();
 
 /// @nodoc
 mixin _$IssueDto {
-  int get id;
+  int get number;
   String get title;
   String get body;
   String get state;
   String get html_url;
-  List<Map<String, dynamic>> get labels;
+  int get comments;
   DateTime get created_at;
   DateTime get updated_at;
-  DateTime get closed_at;
 
   Map<String, dynamic> toJson();
   $IssueDtoCopyWith<IssueDto> get copyWith;
@@ -71,15 +68,14 @@ abstract class $IssueDtoCopyWith<$Res> {
   factory $IssueDtoCopyWith(IssueDto value, $Res Function(IssueDto) then) =
       _$IssueDtoCopyWithImpl<$Res>;
   $Res call(
-      {int id,
+      {int number,
       String title,
       String body,
       String state,
       String html_url,
-      List<Map<String, dynamic>> labels,
+      int comments,
       DateTime created_at,
-      DateTime updated_at,
-      DateTime closed_at});
+      DateTime updated_at});
 }
 
 /// @nodoc
@@ -92,31 +88,26 @@ class _$IssueDtoCopyWithImpl<$Res> implements $IssueDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
+    Object number = freezed,
     Object title = freezed,
     Object body = freezed,
     Object state = freezed,
     Object html_url = freezed,
-    Object labels = freezed,
+    Object comments = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
-    Object closed_at = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as int,
+      number: number == freezed ? _value.number : number as int,
       title: title == freezed ? _value.title : title as String,
       body: body == freezed ? _value.body : body as String,
       state: state == freezed ? _value.state : state as String,
       html_url: html_url == freezed ? _value.html_url : html_url as String,
-      labels: labels == freezed
-          ? _value.labels
-          : labels as List<Map<String, dynamic>>,
+      comments: comments == freezed ? _value.comments : comments as int,
       created_at:
           created_at == freezed ? _value.created_at : created_at as DateTime,
       updated_at:
           updated_at == freezed ? _value.updated_at : updated_at as DateTime,
-      closed_at:
-          closed_at == freezed ? _value.closed_at : closed_at as DateTime,
     ));
   }
 }
@@ -127,15 +118,14 @@ abstract class _$IssueDtoCopyWith<$Res> implements $IssueDtoCopyWith<$Res> {
       __$IssueDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
+      {int number,
       String title,
       String body,
       String state,
       String html_url,
-      List<Map<String, dynamic>> labels,
+      int comments,
       DateTime created_at,
-      DateTime updated_at,
-      DateTime closed_at});
+      DateTime updated_at});
 }
 
 /// @nodoc
@@ -149,31 +139,26 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
+    Object number = freezed,
     Object title = freezed,
     Object body = freezed,
     Object state = freezed,
     Object html_url = freezed,
-    Object labels = freezed,
+    Object comments = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
-    Object closed_at = freezed,
   }) {
     return _then(_IssueDto(
-      id: id == freezed ? _value.id : id as int,
+      number: number == freezed ? _value.number : number as int,
       title: title == freezed ? _value.title : title as String,
       body: body == freezed ? _value.body : body as String,
       state: state == freezed ? _value.state : state as String,
       html_url: html_url == freezed ? _value.html_url : html_url as String,
-      labels: labels == freezed
-          ? _value.labels
-          : labels as List<Map<String, dynamic>>,
+      comments: comments == freezed ? _value.comments : comments as int,
       created_at:
           created_at == freezed ? _value.created_at : created_at as DateTime,
       updated_at:
           updated_at == freezed ? _value.updated_at : updated_at as DateTime,
-      closed_at:
-          closed_at == freezed ? _value.closed_at : closed_at as DateTime,
     ));
   }
 }
@@ -183,21 +168,20 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
   const _$_IssueDto(
-      {this.id,
+      {this.number,
       this.title,
       this.body,
       this.state,
       this.html_url,
-      this.labels,
+      this.comments,
       this.created_at,
-      this.updated_at,
-      this.closed_at});
+      this.updated_at});
 
   factory _$_IssueDto.fromJson(Map<String, dynamic> json) =>
       _$_$_IssueDtoFromJson(json);
 
   @override
-  final int id;
+  final int number;
   @override
   final String title;
   @override
@@ -207,17 +191,15 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
   @override
   final String html_url;
   @override
-  final List<Map<String, dynamic>> labels;
+  final int comments;
   @override
   final DateTime created_at;
   @override
   final DateTime updated_at;
-  @override
-  final DateTime closed_at;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'IssueDto(id: $id, title: $title, body: $body, state: $state, html_url: $html_url, labels: $labels, created_at: $created_at, updated_at: $updated_at, closed_at: $closed_at)';
+    return 'IssueDto(number: $number, title: $title, body: $body, state: $state, html_url: $html_url, comments: $comments, created_at: $created_at, updated_at: $updated_at)';
   }
 
   @override
@@ -225,23 +207,22 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'IssueDto'))
-      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('number', number))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('body', body))
       ..add(DiagnosticsProperty('state', state))
       ..add(DiagnosticsProperty('html_url', html_url))
-      ..add(DiagnosticsProperty('labels', labels))
+      ..add(DiagnosticsProperty('comments', comments))
       ..add(DiagnosticsProperty('created_at', created_at))
-      ..add(DiagnosticsProperty('updated_at', updated_at))
-      ..add(DiagnosticsProperty('closed_at', closed_at));
+      ..add(DiagnosticsProperty('updated_at', updated_at));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _IssueDto &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.number, number) ||
+                const DeepCollectionEquality().equals(other.number, number)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.body, body) ||
@@ -251,31 +232,28 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
             (identical(other.html_url, html_url) ||
                 const DeepCollectionEquality()
                     .equals(other.html_url, html_url)) &&
-            (identical(other.labels, labels) ||
-                const DeepCollectionEquality().equals(other.labels, labels)) &&
+            (identical(other.comments, comments) ||
+                const DeepCollectionEquality()
+                    .equals(other.comments, comments)) &&
             (identical(other.created_at, created_at) ||
                 const DeepCollectionEquality()
                     .equals(other.created_at, created_at)) &&
             (identical(other.updated_at, updated_at) ||
                 const DeepCollectionEquality()
-                    .equals(other.updated_at, updated_at)) &&
-            (identical(other.closed_at, closed_at) ||
-                const DeepCollectionEquality()
-                    .equals(other.closed_at, closed_at)));
+                    .equals(other.updated_at, updated_at)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(number) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(state) ^
       const DeepCollectionEquality().hash(html_url) ^
-      const DeepCollectionEquality().hash(labels) ^
+      const DeepCollectionEquality().hash(comments) ^
       const DeepCollectionEquality().hash(created_at) ^
-      const DeepCollectionEquality().hash(updated_at) ^
-      const DeepCollectionEquality().hash(closed_at);
+      const DeepCollectionEquality().hash(updated_at);
 
   @override
   _$IssueDtoCopyWith<_IssueDto> get copyWith =>
@@ -289,20 +267,19 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
 
 abstract class _IssueDto implements IssueDto {
   const factory _IssueDto(
-      {int id,
+      {int number,
       String title,
       String body,
       String state,
       String html_url,
-      List<Map<String, dynamic>> labels,
+      int comments,
       DateTime created_at,
-      DateTime updated_at,
-      DateTime closed_at}) = _$_IssueDto;
+      DateTime updated_at}) = _$_IssueDto;
 
   factory _IssueDto.fromJson(Map<String, dynamic> json) = _$_IssueDto.fromJson;
 
   @override
-  int get id;
+  int get number;
   @override
   String get title;
   @override
@@ -312,13 +289,11 @@ abstract class _IssueDto implements IssueDto {
   @override
   String get html_url;
   @override
-  List<Map<String, dynamic>> get labels;
+  int get comments;
   @override
   DateTime get created_at;
   @override
   DateTime get updated_at;
-  @override
-  DateTime get closed_at;
   @override
   _$IssueDtoCopyWith<_IssueDto> get copyWith;
 }

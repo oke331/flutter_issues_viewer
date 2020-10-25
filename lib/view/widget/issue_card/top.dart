@@ -7,8 +7,20 @@ class IssueCardTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final id = context.select((IssueDto value) => value.id);
+    final number = context.select((IssueDto value) => value.number);
+    final comments = context.select((IssueDto value) => value.comments);
 
-    return Text('No.$id');
+    return Row(
+      children: [
+        Text('No.$number'),
+        const SizedBox(width: 12),
+        const Icon(
+          Icons.comment,
+          size: 15,
+        ),
+        const SizedBox(width: 3),
+        Text(comments.toString()),
+      ],
+    );
   }
 }

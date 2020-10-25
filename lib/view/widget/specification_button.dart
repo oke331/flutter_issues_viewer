@@ -39,7 +39,7 @@ class SpecificationButton extends StatelessWidget {
 
 ●はじめは20件読み込み、その後スクロールごとに20件ずつ読み込む。
 
-●リストは作成日時の降順で、openとclosed両方のissueを表示する様にしている。
+●リストは作成日時の降順で、openとclosedを含む全てのissueを表示する様にしている。
 
 ●アイコンについて、openのときは緑マーク、closeしたissueは赤いチェックとなる。
 

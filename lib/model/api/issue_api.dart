@@ -12,7 +12,7 @@ class IssueApi {
 
   final String _label;
 
-  Future<List<IssueDto>> getAll({@required int lastPage}) async {
+  Future<List<IssueDto>> fetch({@required int lastPage}) async {
     try {
       final response = await http
           .get(

@@ -24,6 +24,7 @@ class _$IssueDtoTearOff {
       String state,
       String html_url,
       int comments,
+      Map<String, dynamic> pull_request,
       DateTime created_at,
       DateTime updated_at}) {
     return _IssueDto(
@@ -33,6 +34,7 @@ class _$IssueDtoTearOff {
       state: state,
       html_url: html_url,
       comments: comments,
+      pull_request: pull_request,
       created_at: created_at,
       updated_at: updated_at,
     );
@@ -56,6 +58,7 @@ mixin _$IssueDto {
   String get state;
   String get html_url;
   int get comments;
+  Map<String, dynamic> get pull_request;
   DateTime get created_at;
   DateTime get updated_at;
 
@@ -74,6 +77,7 @@ abstract class $IssueDtoCopyWith<$Res> {
       String state,
       String html_url,
       int comments,
+      Map<String, dynamic> pull_request,
       DateTime created_at,
       DateTime updated_at});
 }
@@ -94,6 +98,7 @@ class _$IssueDtoCopyWithImpl<$Res> implements $IssueDtoCopyWith<$Res> {
     Object state = freezed,
     Object html_url = freezed,
     Object comments = freezed,
+    Object pull_request = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
   }) {
@@ -104,6 +109,9 @@ class _$IssueDtoCopyWithImpl<$Res> implements $IssueDtoCopyWith<$Res> {
       state: state == freezed ? _value.state : state as String,
       html_url: html_url == freezed ? _value.html_url : html_url as String,
       comments: comments == freezed ? _value.comments : comments as int,
+      pull_request: pull_request == freezed
+          ? _value.pull_request
+          : pull_request as Map<String, dynamic>,
       created_at:
           created_at == freezed ? _value.created_at : created_at as DateTime,
       updated_at:
@@ -124,6 +132,7 @@ abstract class _$IssueDtoCopyWith<$Res> implements $IssueDtoCopyWith<$Res> {
       String state,
       String html_url,
       int comments,
+      Map<String, dynamic> pull_request,
       DateTime created_at,
       DateTime updated_at});
 }
@@ -145,6 +154,7 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
     Object state = freezed,
     Object html_url = freezed,
     Object comments = freezed,
+    Object pull_request = freezed,
     Object created_at = freezed,
     Object updated_at = freezed,
   }) {
@@ -155,6 +165,9 @@ class __$IssueDtoCopyWithImpl<$Res> extends _$IssueDtoCopyWithImpl<$Res>
       state: state == freezed ? _value.state : state as String,
       html_url: html_url == freezed ? _value.html_url : html_url as String,
       comments: comments == freezed ? _value.comments : comments as int,
+      pull_request: pull_request == freezed
+          ? _value.pull_request
+          : pull_request as Map<String, dynamic>,
       created_at:
           created_at == freezed ? _value.created_at : created_at as DateTime,
       updated_at:
@@ -174,6 +187,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       this.state,
       this.html_url,
       this.comments,
+      this.pull_request,
       this.created_at,
       this.updated_at});
 
@@ -193,13 +207,15 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
   @override
   final int comments;
   @override
+  final Map<String, dynamic> pull_request;
+  @override
   final DateTime created_at;
   @override
   final DateTime updated_at;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'IssueDto(number: $number, title: $title, body: $body, state: $state, html_url: $html_url, comments: $comments, created_at: $created_at, updated_at: $updated_at)';
+    return 'IssueDto(number: $number, title: $title, body: $body, state: $state, html_url: $html_url, comments: $comments, pull_request: $pull_request, created_at: $created_at, updated_at: $updated_at)';
   }
 
   @override
@@ -213,6 +229,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       ..add(DiagnosticsProperty('state', state))
       ..add(DiagnosticsProperty('html_url', html_url))
       ..add(DiagnosticsProperty('comments', comments))
+      ..add(DiagnosticsProperty('pull_request', pull_request))
       ..add(DiagnosticsProperty('created_at', created_at))
       ..add(DiagnosticsProperty('updated_at', updated_at));
   }
@@ -235,6 +252,9 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
             (identical(other.comments, comments) ||
                 const DeepCollectionEquality()
                     .equals(other.comments, comments)) &&
+            (identical(other.pull_request, pull_request) ||
+                const DeepCollectionEquality()
+                    .equals(other.pull_request, pull_request)) &&
             (identical(other.created_at, created_at) ||
                 const DeepCollectionEquality()
                     .equals(other.created_at, created_at)) &&
@@ -252,6 +272,7 @@ class _$_IssueDto with DiagnosticableTreeMixin implements _IssueDto {
       const DeepCollectionEquality().hash(state) ^
       const DeepCollectionEquality().hash(html_url) ^
       const DeepCollectionEquality().hash(comments) ^
+      const DeepCollectionEquality().hash(pull_request) ^
       const DeepCollectionEquality().hash(created_at) ^
       const DeepCollectionEquality().hash(updated_at);
 
@@ -273,6 +294,7 @@ abstract class _IssueDto implements IssueDto {
       String state,
       String html_url,
       int comments,
+      Map<String, dynamic> pull_request,
       DateTime created_at,
       DateTime updated_at}) = _$_IssueDto;
 
@@ -290,6 +312,8 @@ abstract class _IssueDto implements IssueDto {
   String get html_url;
   @override
   int get comments;
+  @override
+  Map<String, dynamic> get pull_request;
   @override
   DateTime get created_at;
   @override

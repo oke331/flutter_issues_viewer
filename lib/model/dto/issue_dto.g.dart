@@ -14,6 +14,7 @@ _$_IssueDto _$_$_IssueDtoFromJson(Map<String, dynamic> json) {
     state: json['state'] as String,
     html_url: json['html_url'] as String,
     comments: json['comments'] as int,
+    pull_request: json['pull_request'] as Map<String, dynamic>,
     created_at: json['created_at'] == null
         ? null
         : DateTime.parse(json['created_at'] as String),
@@ -31,6 +32,7 @@ Map<String, dynamic> _$_$_IssueDtoToJson(_$_IssueDto instance) =>
       'state': instance.state,
       'html_url': instance.html_url,
       'comments': instance.comments,
+      'pull_request': instance.pull_request,
       'created_at': instance.created_at?.toIso8601String(),
       'updated_at': instance.updated_at?.toIso8601String(),
     };

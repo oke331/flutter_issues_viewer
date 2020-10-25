@@ -63,7 +63,7 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
   }
 
   Future<List<IssueDto>> _fetch() async {
-    final result = await _api.getAll(lastPage: state.lastPage);
+    final result = await _api.fetch(lastPage: state.lastPage);
     return result;
   }
 

@@ -9,6 +9,7 @@ class IssueCardTop extends StatelessWidget {
   Widget build(BuildContext context) {
     final number = context.select((IssueDto value) => value.number);
     final comments = context.select((IssueDto value) => value.comments);
+    final pull_request = context.select((IssueDto value) => value.pull_request);
 
     return Row(
       children: [
@@ -20,6 +21,12 @@ class IssueCardTop extends StatelessWidget {
         ),
         const SizedBox(width: 3),
         Text(comments.toString()),
+        const Spacer(),
+        if (pull_request != null)
+          const Text(
+            'pull request',
+            style: TextStyle(fontSize: 12, color: Colors.cyan),
+          )
       ],
     );
   }

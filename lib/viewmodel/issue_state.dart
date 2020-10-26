@@ -31,9 +31,12 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
     try {
       await getList();
     } on Exception catch (e) {
-      await Fluttertoast.showToast(msg: _errorMessage);
+      await showErrorToast(e);
       logger.d(e.toString());
     } finally {
+      // TabBarを飛ばして表示した時、すぐにdisposeされてしまいエラーが出力されるため、
+      // mountされているかどうかをチェック
+      if (!mounted) return;
       state = state.copyWith(init: true);
     }
   }
@@ -45,6 +48,8 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
     try {
       final issueDtoList = await _fetch();
 
+      if (!mounted) return;
+
       final newList = <IssueDto>[];
       if (state.issueDtoList != null && state.issueDtoList.isNotEmpty) {
         newList.addAll(state.issueDtoList);
@@ -52,12 +57,13 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
 
       newList.addAll(issueDtoList);
 
-      state =
-          state.copyWith(issueDtoList: newList, lastPage: state.lastPage + 1);
+      state = state.copyWith(
+          issueDtoList: newList,
+          lastPage: state.lastPage + 1,
+          isLoading: false);
     } on Exception catch (e) {
-      await Fluttertoast.showToast(msg: _errorMessage);
+      await showErrorToast(e);
       logger.d(e.toString());
-    } finally {
       state = state.copyWith(isLoading: false);
     }
   }
@@ -67,12 +73,15 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
     state = state.copyWith(lastPage: 0);
     try {
       final issueDtoList = await _fetch();
+
+      if (!mounted) return;
+
       final newList = <IssueDto>[];
       newList.addAll(issueDtoList);
 
       state = state.copyWith(issueDtoList: newList, lastPage: 1);
     } on Exception catch (e) {
-      await Fluttertoast.showToast(msg: _errorMessage);
+      await showErrorToast(e);
       logger.d(e.toString());
       state = state.copyWith(lastPage: beforeLastPage);
     }
@@ -81,5 +90,10 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
   Future<List<IssueDto>> _fetch() async {
     final result = await _api.fetch(lastPage: state.lastPage);
     return result;
+  }
+
+  Future<void> showErrorToast(Exception e) async {
+    await Fluttertoast.showToast(
+        msg: '$_errorMessage\n${e.toString()}', timeInSecForIosWeb: 3);
   }
 }

@@ -17,7 +17,7 @@ class IssueApi {
       final response = await http
           .get(
               '$_url?state=all&sort=created&direction=desc&page=${lastPage + 1}&per_page=20${_label.isNotEmpty ? '&labels=$_label' : ''}')
-          .timeout(const Duration(seconds: 30), onTimeout: _timeout);
+          .timeout(const Duration(seconds: 10), onTimeout: _timeout);
       if (response.statusCode == 200) {
         final list = <IssueDto>[];
         final decoded = await json.decode(response.body) as List<dynamic>;
@@ -26,7 +26,8 @@ class IssueApi {
         }
         return list;
       } else {
-        throw Exception('アクセスに失敗しました。');
+        throw Exception(
+            'アクセスに失敗しました。 response code:${response.statusCode}  reason:${response.reasonPhrase}');
       }
     } on Exception catch (e) {
       rethrow;

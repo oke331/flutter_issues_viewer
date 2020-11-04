@@ -21,16 +21,11 @@ class TabWidget extends StatelessWidget {
             issueDtoList: state.issueDtoList,
             init: state.init,
             isLoading: state.isLoading,
-            scrollCallback: () async => _scrollCallback(context),
             pullRefresh: () async => _pullRefresh(context),
           );
         },
       ),
     );
-  }
-
-  Future<void> _scrollCallback(BuildContext context) async {
-    await context.read<IssueStateNotifier>().getList();
   }
 
   Future<void> _pullRefresh(BuildContext context) async {

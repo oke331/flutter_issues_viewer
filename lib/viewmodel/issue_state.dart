@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_issues/main.dart';
 import 'package:flutter_issues/model/api/issue_api.dart';
 import 'package:flutter_issues/model/dto/issue_dto.dart';
@@ -20,15 +21,21 @@ abstract class IssueState with _$IssueState {
 class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
   IssueStateNotifier(IssueApi api)
       : _api = api,
-        super(const IssueState()) {}
+        super(const IssueState());
 
   final IssueApi _api;
 
   static const _errorMessage = 'エラーが発生しました。';
+  final scrollController = ScrollController();
 
   @override
   Future<void> initState() async {
     try {
+      // スクロールが最下部まで達したらロード開始
+      scrollController.addListener(() async {
+        await _scrollListener();
+      });
+
       await getList();
     } on Exception catch (e) {
       await showErrorToast(e);
@@ -95,5 +102,12 @@ class IssueStateNotifier extends StateNotifier<IssueState> with LocatorMixin {
   Future<void> showErrorToast(Exception e) async {
     await Fluttertoast.showToast(
         msg: '$_errorMessage\n${e.toString()}', timeInSecForIosWeb: 3);
+  }
+
+  Future<void> _scrollListener() async {
+    if (scrollController.offset >= scrollController.position.maxScrollExtent &&
+        !scrollController.position.outOfRange) {
+      await getList();
+    }
   }
 }
